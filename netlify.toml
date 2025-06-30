@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://cyberhackacademy.in/*"
+  to = "http://cyberhackacademy.in/:splat"
+  status = 301
+  force = true
