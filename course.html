@@ -10,15 +10,18 @@
 
   <!-- Header Section -->
   <header>
-    <nav>
+  <nav>
+    <div class="logo-and-menu">
       <h1>⚡ CyberHack Academy</h1>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="blog.html">Blog</a></li>
-      </ul>
-    </nav>
-  </header>
+      <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+    </div>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+  </nav>
+</header>
 
 
 
@@ -91,5 +94,15 @@
   <!-- Razorpay Script + JS -->
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <script src="js/main.js"></script>
+
+
+         <!-- This javascript is use for mobile responsive for header three line, when user click on the three line then it will show home, about and blog section. -->
+
+  <script>
+  function toggleMenu() {
+    const navLinks = document.getElementById('nav-links');
+    navLinks.classList.toggle('show');
+  }
+</script>
 </body>
 </html>
