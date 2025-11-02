@@ -115,7 +115,7 @@
 
         handler: function (response) {
           // ✅ On success redirect to WhatsApp link
-          window.location.href = "https://chat.whatsapp.com/KYV3avhrc3VC48y96C69vf?";
+          window.location.href = "https://chat.whatsapp.com/KYV3avhrc3VC48y96C69vf?mode=wwt";
         },
 
         prefill: {
@@ -135,10 +135,11 @@
       // ✅ Re-enable button (if popup closed)
       rzp.on("payment.failed", function () {
         document.getElementById("proceedBtn").disabled = false;
-        document.getElementById("proceedBtn").innerText = "Proceed to Pay ₹299";
+        document.getElementById("proceedBtn").innerText = "Proceed to Pay ₹499";
       });
     }
   </script>
 
 </body>
 </html>
+
