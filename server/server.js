@@ -46,7 +46,7 @@ app.post('/verify-payment', (req, res) => {
 
     if (generated_signature === razorpay_signature) {
       // payment verified
-      const whatsappInviteLink = "https://chat.whatsapp.com/KYV3avhrc3VC48y96C69vf?"; // <-- replace
+      const whatsappInviteLink = "https://chat.whatsapp.com/KYV3avhrc3VC48y96C69vf?mode=wwt"; // <-- replace
       // aap yahan DB update karo ki user paid ho gaya (name/email/phone + payment id)
       res.json({ success: true, message: 'Payment verified', invite: whatsappInviteLink });
     } else {
@@ -60,3 +60,4 @@ app.post('/verify-payment', (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log('Server running on port', PORT));
+
