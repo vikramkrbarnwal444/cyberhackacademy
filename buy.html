@@ -24,11 +24,14 @@
       <h2>🛒 Join the Live Hacking Course</h2>
 
       <p class="support-line">
-        📞 For any queries or support, contact: 
+        📞 For any queries or support, whatsapp: 
         <strong style="color:#00ffcc;">+91 9334494170</strong>
       </p>
 
-      <form id="userForm" method="POST" action="https://script.google.com/macros/s/AKfycbwd9HC3KHDdZEzOjcejjHs5WkTRcXKxKP-XX4cEsT6sehJrii8BWUi13q_R0ZAp5tKA/exec" onsubmit="return handleForm(event)">
+      <form id="userForm" method="POST"
+        action="https://script.google.com/macros/s/AKfycbwd9HC3KHDdZEzOjcejjHs5WkTRcXKxKP-XX4cEsT6sehJrii8BWUi13q_R0ZAp5tKA/exec"
+        onsubmit="return handleForm(event)">
+        
         <label for="name">👤 Full Name:</label>
         <input type="text" id="name" name="name" required />
 
@@ -38,7 +41,7 @@
         <label for="phone">📱 Mobile Number:</label>
         <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" maxlength="10" />
 
-        <button type="submit" id="proceedBtn">Proceed to Pay ₹299</button>
+        <button type="submit" id="proceedBtn">Proceed to Pay ₹499</button>
       </form>
 
       <p class="secure-note">🔒 Your information is securely handled. Only verified buyers will be granted course access.</p>
@@ -50,66 +53,92 @@
   </footer>
 
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
   <script>
+
+    /* ✅ Basic security filter */
     function validateInput(value) {
-      const sqlPattern = /('|--|;|\/\*|\*\/|xp_cmdshell|exec|union|select|drop|insert|delete|update)/i;
-      return !sqlPattern.test(value);
+      const pattern = /('|--|;|\/\*|\*\/|union|select|drop|insert|delete|update|xp_cmdshell|exec)/i;
+      return !pattern.test(value);
     }
 
-    function handleForm(e) {
-      e.preventDefault(); // prevent default submission
+    /* ✅ Main form handler */
+    async function handleForm(e) {
+      e.preventDefault();
 
-      const name = document.getElementById("name").value.trim();
+      const name  = document.getElementById("name").value.trim();
       const email = document.getElementById("email").value.trim();
       const phone = document.getElementById("phone").value.trim();
 
+      // ✅ Security validation
       if (!validateInput(name) || !validateInput(email) || !validateInput(phone)) {
         alert("Invalid input detected. Please remove any suspicious characters.");
         return false;
       }
 
-      // Submit data to Google Sheets
-      const form = e.target;
-      const data = new FormData(form);
-      fetch(form.action, {
-        method: 'POST',
-        body: data,
-      })
-      .then(() => {
-        // Now trigger Razorpay payment after successful form submission
-        startPayment(name, email, phone);
-      })
-      .catch(err => {
-        alert("Something went wrong while submitting your data.");
+      // ✅ Disable button to prevent double-click
+      document.getElementById("proceedBtn").disabled = true;
+      document.getElementById("proceedBtn").innerText = "Processing...";
+
+      try {
+        // ✅ Send data to Google Sheet
+        const form = e.target;
+        const data = new FormData(form);
+
+        await fetch(form.action, { method: "POST", body: data });
+
+        // ✅ Delay (Google Apps Script returns instantly)
+        setTimeout(() => {
+          startPayment(name, email, phone);
+        }, 800);
+
+      } catch (err) {
+        alert("❌ Error while saving your details. Please try again.");
         console.error(err);
-      });
+
+        document.getElementById("proceedBtn").disabled = false;
+        document.getElementById("proceedBtn").innerText = "Proceed to Pay ₹299";
+      }
 
       return false;
     }
 
+    /* ✅ Razorpay Payment Function */
     function startPayment(name, email, phone) {
+
       var options = {
-        key: "YOUR_RAZORPAY_KEY", // 🔁 Replace with your Razorpay API key
-        amount: 29900, // ₹299 in paise
+        key: "rzp_test_RaWuTfmiSpAzQ4",   // ✅ replace this only
+        amount: 49900,
         currency: "INR",
         name: "CyberHack Academy",
-        description: "Live Hacking Course",
+        description: "Live Hacking Course (₹499)",
+
         handler: function (response) {
-          alert("✅ Payment successful!\nPayment ID: " + response.razorpay_payment_id + "\nWe’ll verify and add you to the WhatsApp group soon.");
-          // ⚠️ You can also redirect to a thank you page here.
+          // ✅ On success redirect to WhatsApp link
+          window.location.href = "https://chat.whatsapp.com/KYV3avhrc3VC48y96C69vf?";
         },
+
         prefill: {
           name: name,
           email: email,
-          contact: phone,
+          contact: phone
         },
+
         theme: {
           color: "#00ffcc"
         }
       };
+
       var rzp = new Razorpay(options);
       rzp.open();
+
+      // ✅ Re-enable button (if popup closed)
+      rzp.on("payment.failed", function () {
+        document.getElementById("proceedBtn").disabled = false;
+        document.getElementById("proceedBtn").innerText = "Proceed to Pay ₹299";
+      });
     }
   </script>
+
 </body>
 </html>
