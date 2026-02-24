@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>News Archive | Vic E Solutions</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Rajdhani:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    margin:0;
+    background:#020617;
+    color:#cbd5f5;
+    font-family:'Rajdhani', sans-serif;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:40px 0;
+}
+
+.page-title{
+    text-align:center;
+    font-size:32px;
+    color:#34d399;
+    margin-bottom:30px;
+    font-family:'Orbitron', sans-serif;
+}
+
+/* Search Controls */
+
+.controls{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    justify-content:center;
+    margin-bottom:40px;
+}
+
+.controls input,
+.controls select{
+    padding:10px 15px;
+    border-radius:8px;
+    border:1px solid rgba(52,211,153,0.3);
+    background:#020c1b;
+    color:white;
+}
+
+/* Date */
+
+.archive-date{
+    font-size:22px;
+    color:#34d399;
+    margin-bottom:20px;
+    border-left:4px solid #34d399;
+    padding-left:12px;
+    font-family:'Orbitron', sans-serif;
+}
+
+/* Cards */
+
+.news-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+    margin-bottom:50px;
+}
+
+.news-card{
+    background:#020c1b;
+    border:1px solid rgba(52,211,153,0.2);
+    border-radius:14px;
+    overflow:hidden;
+    transition:0.3s;
+}
+
+.news-card:hover{
+    transform:translateY(-5px);
+    border-color:#34d399;
+}
+
+.news-img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.news-content{
+    padding:18px;
+}
+
+.news-category{
+    font-size:12px;
+    color:#34d399;
+    margin-bottom:8px;
+}
+
+.news-title{
+    font-size:18px;
+    color:white;
+    margin-bottom:10px;
+}
+
+.news-desc{
+    font-size:14px;
+    color:#94a3b8;
+    margin-bottom:15px;
+}
+
+.read-btn{
+    color:#34d399;
+    text-decoration:none;
+}
+
+.read-btn:hover{
+    text-decoration:underline;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 class="page-title">News Archive</h1>
+
+
+<!-- ================= CONTROLS ================= -->
+
+<div class="controls">
+
+<input type="text" id="searchDate" placeholder="Search by date (e.g. 18 February 2026)">
+
+<select id="categoryFilter">
+<option value="">All Categories</option>
+<option value="CYBERSECURITY BREACH">Cybersecurity Breach</option>
+<option value="DEFENCE TECH">Defence Tech</option>
+<option value="CYBER THREAT">Cyber Threat</option>
+<option value="MALWARE ALERT">Malware Alert</option>
+<option value="SECURITY UPDATE">Security Update</option>
+<option value="AI SECURITY">AI Security</option>
+</select>
+
+</div>
+
+
+<!-- ================= DATE SECTION ================= -->
+ 
+<!-- ================= 23 feb ================= -->
+ <div class="archive-section" data-date="23 February 2026">
+
+<div class="archive-date">23 February 2026</div>
+
+<div class="news-grid">
+
+<div class="news-card" data-category="CYBER THREAT">
+<img src="imagess/archive_image/231feb.webp" class="news-img">
+<div class="news-content">
+<div class="news-category">CYBERSECURITY AI</div>
+<div class="news-title">AI automates real Metasploit attacks.</div>
+<div class="news-desc">LLM linked via MCP executes recon, exploits, and generates security reports automatically.
+</div>
+<a href="https://www.youtube.com/watch?v=_GxopZS8LwU" class="read-btn"
+target="_blank"
+rel="noopener noreferrer"
+>
+    Watch Now →</a>
+</div>
+</div>
+
+<div class="news-card" data-category="AI Security">
+<img src="imagess/archive_image/232feb.webp" class="news-img">
+<div class="news-content">
+<div class="news-category">ENERGY TECH</div>
+<div class="news-title">China’s water battery outlasts lithium by decades.</div>
+<div class="news-desc">Non-toxic, water-based design endures 120 000+ charge cycles, boosts safety.</div>
+<a href="https://interestingengineering.com/energy/chinas-water-battery-outlast-lithium" class="read-btn"
+target="_blank"
+rel="noopener noreferrer"
+>Read More →</a>
+</div>
+</div>
+
+<div class="news-card" data-category="CYBER THREAT">
+<img src="imagess/archive_image/233feb.webp" class="news-img">
+<div class="news-content">
+<div class="news-category">TECH INNOVATION</div>
+<div class="news-title">AI fan auto-adjusts to sleep posture.</div>
+<div class="news-desc">Bengaluru engineer builds fan using AI to optimize speed based on user position.</div>
+<a href="https://www.indiatoday.in/trending-news/story/bengaluru-techie-builds-ai-powered-fan-that-auto-adjusts-speed-based-on-sleep-posture-2871961-2026-02-21" class="read-btn"
+target="_blank"
+rel="noopener noreferrer"
+>Read More →</a>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<!-- ================= 22 feb ================= -->
+ <div class="archive-section" data-date="22 February 2026">
+
+<div class="archive-date">22 February 2026</div>
+
+<div class="news-grid">
+
+<div class="news-card" data-category="CYBER THREAT">
+<img src="imagess/archive_image/221feb.webp" class="news-img">
+<div class="news-content">
+<div class="news-category">SPACE TECH</div>
+<div class="news-title">China’s 2 W laser outpaces Starlink speed.</div>
+<div class="news-desc">GEO satellite used low-power laser to transmit 1 Gbps data, challenging Starlink’s model.
+</div>
+<a href="https://indiandefencereview.com/chinese-satellite-2-watt-laser-beats-starlink/" class="read-btn"
+target="_blank"
+rel="noopener noreferrer"
+>
+    Read More →</a>
+</div>
+</div>
+
+<div class="news-card" data-category="AI Security">
+<img src="imagess/archive_image/222feb.webp" class="news-img">
+<div class="news-content">
+<div class="news-category">CYBERSECURITY THREAT</div>
+<div class="news-title">ClickFix abuses nslookup to deliver malware.</div>
+<div class="news-desc">Attackers use Windows nslookup DNS queries to stage malicious payloads stealthily.</div>
+<a href="https://cybersecuritynews.com/clickfix-attack-using-nslookup/" class="read-btn"
+target="_blank"
+rel="noopener noreferrer"
+>Read More →</a>
+</div>
+</div>
+
+<div class="news-card" data-category="CYBER THREAT">
+<img src="imagess/archive_image/223feb.webp" class="news-img">
+<div class="news-content">
+<div class="news-category">CYBERSECURITY TOOL</div>
+<div class="news-title">AI enhances Metasploit automation capabilities.</div>
+<div class="news-desc">GitHub project integrates AI to assist payload selection and exploitation workflows.</div>
+<a href="https://github.com/yashab-cyber/metasploit-ai" class="read-btn"
+target="_blank"
+rel="noopener noreferrer"
+>Read More →</a>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<!-- ================= 21 feb ================= -->
+ <div class="archive-section" data-date="21 February 2026">
+
+<div class="archive-date">21 February 2026</div>
+
+<div class="news-grid">
+
+<div class="news-card" data-category="CYBER THREAT">
+<img src="imagess/archive_image/211feb.webp" class="news-img">
+<div class="news-content">
+<div class="news-category">CYBER THREAT</div>
+<div class="news-title">Chinese hackers abused Dell zero-day since 2024.</div>
+<div class="news-desc">Threat actors exploited unpatched Dell BIOS vulnerability for broad intrusion.
+</div>
+<a href="https://www.bleepingcomputer.com/news/security/chinese-hackers-exploiting-dell-zero-day-flaw-since-mid-2024/" class="read-btn"
+target="_blank"
+rel="noopener noreferrer"
+>
+    Read More →</a>
+</div>
+</div>
+
+<div class="news-card" data-category="AI Security">
+<img src="imagess/archive_image/212feb.webp" class="news-img">
+<div class="news-content">
+<div class="news-category">AI SECURITY</div>
+<div class="news-title">Altman urges urgent AI regulation.</div>
+<div class="news-desc">OpenAI CEO calls for safeguards to manage growing global AI risks.</div>
+<a href="https://www.youtube.com/watch?v=bz6HmCKAMXQ" class="read-btn"
+target="_blank"
+rel="noopener noreferrer"
+>Watch Now →</a>
+</div>
+</div>
+
+<div class="news-card" data-category="CYBER THREAT">
+<img src="imagess/archive_image/213feb.webp" class="news-img">
+<div class="news-content">
+<div class="news-category">Cybersecurity mobile</div>
+<div class="news-title">Google blocked 175M+ malicious Play apps.</div>
+<div class="news-desc">In 2025, Play Protect rejected millions of harmful submissions before publishing.</div>
+<a href="https://www.bleepingcomputer.com/news/security/google-blocked-over-175-million-play-store-app-submissions-in-2025/" class="read-btn"
+target="_blank"
+rel="noopener noreferrer"
+>Read More →</a>
+</div>
+</div>
+
+</div>
+</div>
+
+
+
+<!-- ================= 20 feb ================= -->
+ <div class="archive-section" data-date="20 February 2026">
+
+<div class="archive-date">20 February 2026</div>
+
+<div class="news-grid">
+
+<div class="news-card" data-category="CYBERSECURITY BREACH">
+<img src="imagess/archive_image/201feb.webp" class="news-img">
+<div class="news-content">
+<div class="news-category">CYBERSECURITY BREACH</div>
+<div class="news-title">Indian pharmacy giant exposed sensitive data</div>
+<div class="news-desc">Admin flaw let unauthorized access to customer orders and internal systems.</div>
+<a href="https://techcrunch.com/2026/02/13/indias-major-pharmacy-chain-exposed-customer-data-and-internal-systems/" class="read-btn"
+target="_blank"
+rel="noopener noreferrer"
+>Read More →</a>
+</div>
+</div>
+
+<div class="news-card" data-category="DEFENCE TECH">
+<img src="imagess/archive_image/202feb.webp" class="news-img">
+<div class="news-content">
+<div class="news-category">DEFENCE TECH</div>
+<div class="news-title">Dutch warns F-35 software risks</div>
+<div class="news-desc">Netherlands official likened modifying F-35 code to an iPhone jailbreak amid sovereignty debate.</div>
+<a href="https://www.eurasiantimes.com/f-35-can-be-jailbroken-like-iphone-if-u-s-withholds-software-upgrades-dutch-defense-secretary-warns/?amp" class="read-btn"
+target="_blank"
+rel="noopener noreferrer"
+>Read More →</a>
+</div>
+</div>
+
+<div class="news-card" data-category="CYBER THREAT">
+<img src="imagess/archive_image/203feb.webp" class="news-img">
+<div class="news-content">
+<div class="news-category">CYBER THREAT</div>
+<div class="news-title">Android tablets shipped with malware</div>
+<div class="news-desc">Kaspersky found firmware-embedded Keenadu backdoor giving remote control and data access.</div>
+<a href="https://www.helpnetsecurity.com/2026/02/17/firmware-level-android-backdoor-keenadu-tablets/" class="read-btn"
+target="_blank"
+rel="noopener noreferrer"
+>Read More →</a>
+</div>
+</div>
+
+</div>
+</div>
+
+
+
+<!-- ================= 19 feb ================= -->
+
+<div class="archive-section" data-date="19 February 2026">
+
+<div class="archive-date">19 February 2026</div>
+
+<div class="news-grid">
+
+<div class="news-card" data-category="CYBERSECURITY BREACH">
+<img src="imagess/archive_image/191feb.webp" class="news-img">
+<div class="news-content">
+<div class="news-category">CYBERSECURITY BREACH</div>
+<div class="news-title">Indian pharmacy giant exposed sensitive data</div>
+<div class="news-desc">Admin flaw allowed unauthorized access to systems.</div>
+<a href="#" class="read-btn">Read More →</a>
+</div>
+</div>
+
+<div class="news-card" data-category="DEFENCE TECH">
+<img src="imagess/archive_image/192feb.webp" class="news-img">
+<div class="news-content">
+<div class="news-category">DEFENCE TECH</div>
+<div class="news-title">Dutch warns F-35 software risks</div>
+<div class="news-desc">Officials compare modification risks to jailbreak.</div>
+<a href="#" class="read-btn">Read More →</a>
+</div>
+</div>
+
+<div class="news-card" data-category="CYBER THREAT">
+<img src="imagess/archive_image/193feb.webp" class="news-img">
+<div class="news-content">
+<div class="news-category">CYBER THREAT</div>
+<div class="news-title">Android tablets shipped with malware</div>
+<div class="news-desc">Firmware contained backdoor for attackers.</div>
+<a href="#" class="read-btn">Read More →</a>
+</div>
+</div>
+
+</div>
+</div>
+
+
+
+<!-- ================= 18 feb ================= -->
+
+<div class="archive-section" data-date="18 February 2026">
+
+<div class="archive-date">18 February 2026</div>
+
+<div class="news-grid">
+
+<div class="news-card" data-category="CYBERSECURITY BREACH">
+<img src="imagess/archive_image/181feb.webp" class="news-img">
+<div class="news-content">
+<div class="news-category">CYBERSECURITY BREACH</div>
+<div class="news-title">Indian pharmacy giant exposed sensitive data</div>
+<div class="news-desc">Admin flaw allowed unauthorized access to systems.</div>
+<a href="#" class="read-btn">Read More →</a>
+</div>
+</div>
+
+<div class="news-card" data-category="DEFENCE TECH">
+<img src="imagess/archive_image/182feb.webp" class="news-img">
+<div class="news-content">
+<div class="news-category">DEFENCE TECH</div>
+<div class="news-title">Dutch warns F-35 software risks</div>
+<div class="news-desc">Officials compare modification risks to jailbreak.</div>
+<a href="#" class="read-btn">Read More →</a>
+</div>
+</div>
+
+<div class="news-card" data-category="CYBER THREAT">
+<img src="imagess/archive_image/183feb.webp" class="news-img">
+<div class="news-content">
+<div class="news-category">CYBER THREAT</div>
+<div class="news-title">Android tablets shipped with malware</div>
+<div class="news-desc">Firmware contained backdoor for attackers.</div>
+<a href="#" class="read-btn">Read More →</a>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<!-- ================= SCRIPT ================= -->
+
+<script>
+
+const searchInput = document.getElementById("searchDate");
+const categoryFilter = document.getElementById("categoryFilter");
+
+searchInput.addEventListener("input", filterNews);
+categoryFilter.addEventListener("change", filterNews);
+
+function filterNews() {
+
+    const dateValue = searchInput.value.toLowerCase();
+    const categoryValue = categoryFilter.value;
+
+    document.querySelectorAll(".archive-section").forEach(section => {
+
+        const sectionDate = section.dataset.date.toLowerCase();
+        let dateMatch = sectionDate.includes(dateValue);
+
+        let visibleCards = 0;
+
+        section.querySelectorAll(".news-card").forEach(card => {
+
+            const cardCategory = card.dataset.category;
+
+            let categoryMatch = !categoryValue || cardCategory === categoryValue;
+
+            if(categoryMatch){
+                card.style.display = "block";
+                visibleCards++;
+            }else{
+                card.style.display = "none";
+            }
+
+        });
+
+        if(dateMatch && visibleCards > 0){
+            section.style.display = "block";
+        }else{
+            section.style.display = "none";
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
