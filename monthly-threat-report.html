@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Threat Intelligence Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+:root {
+    --primary: #020617;
+    --secondary: #1e293b;
+    --accent: #ef4444;
+    --bg: #f4f6f9;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+}
+
+/* HEADER */
+.header {
+    position: sticky;
+    top: 0;
+    background: #020617;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.month-btn {
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.active {
+    background: var(--accent);
+    border: none;
+}
+
+/* ================= COVER ================= */
+.cover {
+    height: 70vh;
+    background: radial-gradient(circle at top, #1e293b, #020617);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.cover::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: rgba(239, 68, 68, 0.15);
+    filter: blur(120px);
+    top: -100px;
+    right: -100px;
+}
+
+.alert-badge {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(239,68,68,0.4);
+}
+
+.cover h1 {
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+.subtitle {
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+.severity-badge {
+    background: #ef4444;
+    padding: 8px 18px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.cvss-bar {
+    width: 300px;
+    height: 8px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.cvss-fill {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #ef4444, #dc2626);
+}
+
+.highlights {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.highlights div {
+    background: rgba(255,255,255,0.05);
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+/* ================= SECTION ================= */
+.section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 20px;
+}
+
+.risk {
+    background: var(--accent);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.report { display:none; }
+.active-report { display:block; }
+
+canvas {
+    width: 100% !important;
+    height: 300px !important;
+}
+
+.footer {
+    background: #020617;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <div class="month-btn active" onclick="showReport('march', this)">March</div>
+    <div class="month-btn" onclick="showReport('april', this)">April</div>
+</div>
+
+<!-- ================= MARCH ================= -->
+<div id="march" class="report active-report">
+
+<!-- ELITE COVER -->
+<div class="cover">
+    <div class="alert-badge">🚨 CRITICAL VULNERABILITY ALERT</div>
+    <h1>March 2026 Threat Intelligence</h1>
+    <p class="subtitle">CVE-2026-20127 — Cisco SD-WAN Authentication Bypass</p>
+
+    <div class="severity-badge">CVSS 10.0 (CRITICAL)</div>
+
+    <div class="cvss-bar"><div class="cvss-fill"></div></div>
+
+    <div class="highlights">
+        <div>⚡ No Auth Required</div>
+        <div>🌐 Remote Exploit</div>
+        <div>💥 Full Network Takeover</div>
+    </div>
+</div>
+
+<div class="section">
+
+<div class="card">
+<h2>Executive Summary</h2>
+<p>
+March 2026 has been marked by the discovery of CVE-2026-20127, a critical vulnerability affecting Cisco SD-WAN systems.
+This flaw allows unauthenticated attackers to bypass authentication and gain administrative access, leading to full network compromise.
+Due to its CVSS score of 10.0 and infrastructure-level impact, it represents one of the most severe threats observed this month.
+</p>
+</div>
+
+<div class="card" style="border-left:6px solid #ef4444;">
+<h2>🚨 Top Vulnerability</h2>
+<h3>CVE-2026-20127 – Cisco SD-WAN Authentication Bypass</h3>
+
+<p>
+This vulnerability enables attackers to bypass authentication and gain full administrative access to SD-WAN controllers,
+allowing manipulation of network traffic and disruption of enterprise infrastructure.
+</p>
+
+<p class="risk">CRITICAL (CVSS 10.0)</p>
+
+<h3>Reference</h3>
+<a href="https://nvd.nist.gov/vuln/detail/CVE-2026-20127" target="_blank">
+NVD Official Page
+</a>
+</div>
+
+<div class="grid">
+<div class="card">
+<h2>📊 CVSS</h2>
+<p><b>Score:</b> 10.0</p>
+<p>AV:N / AC:L / PR:N / UI:N / S:C / C:H / I:H / A:H</p>
+</div>
+
+<div class="card">
+<h2>🎯 MITRE ATT&CK</h2>
+<ul>
+<li>T1190 – Exploit Public App</li>
+<li>T1078 – Valid Accounts</li>
+<li>T1601 – Modify Config</li>
+<li>T1565 – Data Manipulation</li>
+</ul>
+</div>
+</div>
+
+<div class="card">
+<h2>📊 Threat Impact</h2>
+<canvas id="marchChart"></canvas>
+</div>
+
+</div>
+</div>
+
+<!-- APRIL -->
+<div id="april" class="report">
+<div class="cover">
+<h1>📊 April 2026</h1>
+<p>Coming Soon...</p>
+</div>
+</div>
+
+<div class="footer">
+ViceSolutions Threat Intelligence Dashboard
+</div>
+
+<script>
+let currentChart = null;
+
+function showReport(month, el) {
+    document.querySelectorAll('.report').forEach(r => r.classList.remove('active-report'));
+    document.getElementById(month).classList.add('active-report');
+
+    document.querySelectorAll('.month-btn').forEach(btn => btn.classList.remove('active'));
+    el.classList.add('active');
+
+    loadChart(month);
+}
+
+function loadChart(month) {
+    if (currentChart) currentChart.destroy();
+
+    let ctx = document.getElementById(month + "Chart");
+    if (!ctx) return;
+
+    currentChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Network Control','Data Risk','Exploitability','Impact'],
+            datasets: [{
+                data: [100,95,98,100],
+                backgroundColor: '#ef4444'
+            }]
+        },
+        options: {
+            plugins: { legend: { display: false }},
+            scales: { y: { max:100, beginAtZero:true }}
+        }
+    });
+}
+
+window.onload = () => loadChart("march");
+</script>
+
+</body>
+</html>
